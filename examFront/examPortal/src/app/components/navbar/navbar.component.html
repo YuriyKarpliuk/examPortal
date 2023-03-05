@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <a 
+  routerLink="/" 
+  mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu_book</mat-icon>
+  </a>
+  <span>ExamPortal</span>
+  <span class="example-spacer"></span>
+  <a [routerLink]="'/login'" mat-flat-button color="primary">
+    Login
+  </a>
+  <a [routerLink]="'/signup'" mat-flat-button color="primary">
+    Register
+  </a>
+</mat-toolbar>
