@@ -2,7 +2,6 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { LoginService } from "./login.service";
-const TOKEN_HEADER='Authorization';
 
 
 @Injectable()
@@ -14,7 +13,7 @@ constructor(private login:LoginService){}
        let authReq=req;
         const token=this.login.getToken();
         if(token!=null){
-authReq=authReq.clone({setHeaders:{TOKEN_HEADER: `Bearer ${token}`},});
+authReq=authReq.clone({setHeaders:{Authorization: `Bearer ${token}`},});
         }
 return next.handle(authReq);
     }

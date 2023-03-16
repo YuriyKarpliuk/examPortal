@@ -22,11 +22,9 @@ public user={
 
 };
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
   formSubmit(){
-    console.log(this.user);
     if(this.user.username=='' || this.user.username==null){
 this.snack.open('Username is required!!!','',{
   duration:3000,
@@ -38,7 +36,7 @@ this.snack.open('Username is required!!!','',{
     this.userService.addUser(this.user).subscribe(
       (data:any)=>{
         console.log(data);
-    Swal.fire('Successfully done !!!','User id ' + data.id,'success');
+    Swal.fire('Successfully done !!!','Username:' + this.user.username,'success');
       },
       (error)=>{
 console.log(error);

@@ -10,6 +10,6 @@ export class UserService {
     private http:HttpClient) { }
 
   public addUser(user:any){
-    return this.http.post(`${baseUrl}/user/create-user`,user);
+    return this.http.post(`${baseUrl}/api/auth/register`,user);
   }
 }

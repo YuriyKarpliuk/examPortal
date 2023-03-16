@@ -4,6 +4,7 @@ import com.exam.dto.request.AuthenticationRequest;
 import com.exam.dto.request.RegisterRequest;
 import com.exam.dto.response.AuthenticationResponse;
 import com.exam.entity.User;
+import com.exam.exception.UserFoundException;
 import com.exam.security.service.AuthenticationService;
 import com.exam.service.UserService;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +27,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) {
+    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) throws UserFoundException {
         return ResponseEntity.ok(service.register(request));
     }
 

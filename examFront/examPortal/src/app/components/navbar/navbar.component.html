@@ -6,10 +6,30 @@
   </a>
   <span>ExamPortal</span>
   <span class="example-spacer"></span>
-  <a [routerLink]="'/login'" mat-flat-button color="primary">
+  <a 
+  *ngIf="!isLoggedIn"
+  [routerLink]="'/login'" mat-flat-button color="primary">
     Login
   </a>
-  <a [routerLink]="'/signup'" mat-flat-button color="primary">
+  <a 
+  *ngIf="!isLoggedIn"
+
+  [routerLink]="'/signup'" mat-flat-button color="primary">
     Register
   </a>
+  <a 
+  *ngIf="isLoggedIn"
+(click)="logout()"
+ mat-flat-button color="primary">
+    Logout
+  </a>
+
+
+  <a 
+  *ngIf="isLoggedIn && user"
+  routerLink="/admin/profile"
+ mat-flat-button color="primary">
+  {{user.username }}
+  </a>
+ 
 </mat-toolbar>
